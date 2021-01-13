@@ -73,5 +73,4 @@ def create_video(frame_array, FPS, arg_width, arg_height):
   for i in range(len(frame_array)):
     out.write(frame_array[i])
   out.release()
-  print('Done!')
 #end
