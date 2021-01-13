@@ -97,4 +97,5 @@ if __name__ == '__main__':
   print()
 
   create_video(frame_array, arg_FPS*FPS, arg_width, arg_height)
-  # end
+  print('Done!')
+# end
