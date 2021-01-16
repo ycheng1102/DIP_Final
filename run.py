@@ -60,8 +60,8 @@ if __name__ == '__main__':
   i = 0
   for A, B in zip(listA, listB):
 
-    #if i == 30:
-    #  break
+    if i == 72:
+      break
     if i % (arg_FPS * FPS) == 0: print('-- processing %d / %d' % (i, frameNum))
     i += 1
 
@@ -91,6 +91,8 @@ if __name__ == '__main__':
       tenSoftmax = softsplat.FunctionSoftsplat(tenInput=tenFirst, tenFlow=tenFlow * t, tenMetric=-20.0 * tenMetric, strType='softmax')
       frame = tenSoftmax[0, :, :, :].cpu().numpy().transpose(1, 2, 0)
       frame = (frame * 255).astype(numpy.uint8)
+      mask = numpy.all(frame == (0,0,0), axis=-1)
+      frame[mask] = numpy.mean(numpy.array([pic_A[mask], pic_B[mask]]), axis=0)
       frame_array.append(frame)
 
   print('-- processing %d / %d' % (frameNum, frameNum))
