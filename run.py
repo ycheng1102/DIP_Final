@@ -60,8 +60,8 @@ if __name__ == '__main__':
   i = 0
   for A, B in zip(listA, listB):
 
-    if i == 72:
-      break
+    #if i == 72:
+    #  break
     if i % (arg_FPS * FPS) == 0: print('-- processing %d / %d' % (i, frameNum))
     i += 1
 
