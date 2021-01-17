@@ -3,10 +3,6 @@ Frame interpolation - Softmax Splatting
 
 [HackMD Link](https://hackmd.io/@SzhACbEMRiauQwZYIN9zhw/HyFe_bgku/edit)
 
-[Source code Link](https://github.com/ycheng1102/DIP_Final)
-> 因為有影片跟 GIF，建議用 HackMD 看 。
-## Team members
-
 | Student ID |  Name  |
 | :--------: | :----: |
 | 107060023  | 黃子恩 |
