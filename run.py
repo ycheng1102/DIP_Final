@@ -103,6 +103,7 @@ if __name__ == '__main__':
       mask = numpy.all(frame == (0,0,0), axis=-1)
       frame[mask] = numpy.mean(numpy.array([pic_A[mask], pic_B[mask]]), axis=0)
       frame_array.append(frame)
+  print('-- processing %d / %d' % (total_frame, total_frame))
   print()
 
   create_video(frame_array, new_FPS, arg_width, arg_height)
