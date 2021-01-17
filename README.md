@@ -1,7 +1,11 @@
+
+
 Frame interpolation - Softmax Splatting
 ===
 
 [HackMD Link](https://hackmd.io/@SzhACbEMRiauQwZYIN9zhw/HyFe_bgku/edit)
+
+## Team members
 
 | Student ID |  Name  |
 | :--------: | :----: |
