@@ -5,6 +5,7 @@ import os
 import getopt
 import sys
 import math
+import imageio
 
 from PIL import Image
 from asset import flow, softsplat
@@ -24,12 +25,14 @@ if __name__ == '__main__':
 
   arg_width = 640
   arg_height = 360
+  arg_second = 24
   arg_FPS = 2
   arg_Flow = './out.flo'
   arg_threshold = 0
 
   for strOption, strArgument in getopt.getopt(sys.argv[1:], '', [ strParameter[2:] + '=' for strParameter in sys.argv[1::2] ])[0]:
     if strOption == '--video' and strArgument != '': arg_video = strArgument
+    if strOption == '--second' and strArgument != '': arg_second = strArgument
     if strOption == '--width' and strArgument != '': arg_width = strArgument
     if strOption == '--height' and strArgument != '': arg_height = strArgument
     if strOption == '--fps' and strArgument != '': arg_FPS = strArgument
@@ -40,6 +43,7 @@ if __name__ == '__main__':
   arg_FPS = int(arg_FPS)
   arg_width = int(arg_width)
   arg_height = int(arg_height)
+  arg_second = int(arg_second)
   arg_threshold = int(arg_threshold)
 
   time = numpy.linspace(0.0, 1.0, arg_FPS + 1).tolist()
@@ -58,11 +62,16 @@ if __name__ == '__main__':
   listB.remove('0000.png')
   
   i = 0
+  j = -1
+  new_FPS = arg_FPS * FPS
+  total_frame = min(frameNum, arg_second * FPS)
   for A, B in zip(listA, listB):
 
-    #if i == 72:
-    #  break
-    if i % (arg_FPS * FPS) == 0: print('-- processing %d / %d' % (i, frameNum))
+    if i % FPS == 0: 
+      print('-- processing %d / %d' % (i, total_frame))
+      j += 1
+    if j == arg_second:
+      break
     i += 1
 
     fullpath_A = 'video/' + A
@@ -94,10 +103,9 @@ if __name__ == '__main__':
       mask = numpy.all(frame == (0,0,0), axis=-1)
       frame[mask] = numpy.mean(numpy.array([pic_A[mask], pic_B[mask]]), axis=0)
       frame_array.append(frame)
-
-  print('-- processing %d / %d' % (frameNum, frameNum))
   print()
 
-  create_video(frame_array, arg_FPS*FPS, arg_width, arg_height)
+  #imageio.mimsave('project.gif', frame_array, fps=new_FPS)
+  create_video(frame_array, new_FPS, arg_width, arg_height)
   print('Done!')
 # end
