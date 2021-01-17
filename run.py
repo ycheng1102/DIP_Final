@@ -105,7 +105,6 @@ if __name__ == '__main__':
       frame_array.append(frame)
   print()
 
-  #imageio.mimsave('project.gif', frame_array, fps=new_FPS)
   create_video(frame_array, new_FPS, arg_width, arg_height)
   print('Done!')
 # end
