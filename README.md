@@ -1,13 +1,9 @@
----
-title: 'DIP final report'
-disqus: hackmd
----
-
 Frame interpolation - Softmax Splatting
 ===
 
 [HackMD Link](https://hackmd.io/@SzhACbEMRiauQwZYIN9zhw/HyFe_bgku/edit)
-
+[Source code Link](https://github.com/ycheng1102/DIP_Final)
+> 因為有影片跟 GIF，建議用 HackMD 看 。
 ## Team members
 
 | Student ID |  Name  |
@@ -47,7 +43,7 @@ videos that we focus is animation or artificial videos
  -->
 
 ### Steps
-![](https://i.imgur.com/gfOIOkb.png)
+![](https://i.imgur.com/cziAk67.png)
 
 * **Step 1**
     Input a video. Different format is fine (mp4, avi, wmv...).
@@ -67,7 +63,7 @@ For instance, look at the picture given above, and suppose threshold = 1234.
 * **Step 4**
 Looply generate the interpolated frame  of every 2 adjacent frames. Details are given below.
     * **Flow estimation :**
-Input 2 parent frames $I0,\ I1$, and use PWC-Net to calculate flow $F_{0→1},\ F_{1→0}$
+Input 2 parent frames $I_0,\ I_1$, and use PWC-Net to calculate flow $F_{0→1},\ F_{1→0}$
     * **Extract feature pyramid :**
 For each parent frames, extract the feature pyramid with 3 different size (32, 64, 96) after 6 layers of convolution.
     * **softmax splatting ：**
