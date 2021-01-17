@@ -54,7 +54,7 @@ def extract_keyframe(arg_video, arg_FPS, arg_width, arg_height, arg_threshold):
   # end
   vidcap.release()
   cv2.destroyAllWindows()
-  print("Total Number of keyframes : {}".format(i))
+  print("Total number of keyframes : {}".format(i))
   print()
 
   return FPS, i
